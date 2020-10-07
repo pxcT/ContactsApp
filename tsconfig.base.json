@@ -15,7 +15,8 @@
     "lib": ["es2018", "dom"],
     "paths": {
       "@app-shared/*": ["app/shared/*"],
-      "@app-auth/*": ["app/auth/*"]
+      "@app-auth/*": ["app/auth/*"],
+      "@app-contacts/*": ["app/contacts/*"]
     }
   }
 }

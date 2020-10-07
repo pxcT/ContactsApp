@@ -1,6 +1,5 @@
 export interface ILoadedItems<T> {
-    count: number;
-    next: string;
-    previous: string;
+    count: number;  
+    totalCount: number;
     results: Array<T>
 }

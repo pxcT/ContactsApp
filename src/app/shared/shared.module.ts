@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 // Components
-import { CtTableComponent } from '@app-shared/components/ct-table/ct-table.component';
+import { CtTableComponent } from '@app-shared/ct-table/ct-table.component';
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import { CtTableComponent } from '@app-shared/components/ct-table/ct-table.compo
         ReactiveFormsModule,
         FormsModule
     ],
-    declarations: [CtTableComponent, CtTableComponent],
+    declarations: [CtTableComponent],
     providers: [],
 })
 export class SharedModule { }

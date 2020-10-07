@@ -4,7 +4,7 @@ export interface ICtTableConfig {
 }
 
 export interface ICtColumnConfig {
-    columnDef: string;
-    columnName: string;
-    key: string;
+    columnDef: string; // key for column 
+    columnName: string; // Column label
+    key: string; // key for element
 }
