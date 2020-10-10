@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
 // Models
@@ -16,7 +16,7 @@ import { CONTACTS } from '@app-contacts/services/dummy-data';
 	templateUrl: './contacts-list.component.html',
 	styleUrls: ['./contacts-list.component.scss']
 })
-export class ContactsListComponent implements OnInit {
+export class ContactsListComponent {
 	public data: ILoadedItems<UserModel>= {
 		count: CONTACTS.length, // will be used for pagination
 		results: CONTACTS,
@@ -26,13 +26,15 @@ export class ContactsListComponent implements OnInit {
 
 	constructor() { }
 
-	ngOnInit(): void {
-		console.log('got here');
-	}
-
-
 	onPageChange(e: PageEvent) {
 		// NOTE: for future development (pagination)
 	}
 
+	
+    /**
+     * onItemClicked
+     */
+    public onItemClicked(e) {
+        console.log('e', e);
+    }
 }

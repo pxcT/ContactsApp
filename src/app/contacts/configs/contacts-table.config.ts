@@ -18,5 +18,5 @@ export const CONTACTS_TABLE_CONFIG: ICtTableConfig = {
         columnName: 'Email',
         key: 'email'
     }],
-    displayedColumns: ['firstName', 'lastName', 'phoneNumber', 'email']
+    displayedColumns: ['select', 'firstName', 'lastName', 'phoneNumber', 'email']
 }

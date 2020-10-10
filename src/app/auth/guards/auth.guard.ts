@@ -7,9 +7,7 @@ export class AuthGuard implements CanLoad {
 
     canLoad(route: Route) {
         const id = window.localStorage.getItem('userId');
-        console.log('id', id);
         if (!id) {
-            console.log('is Id ?', id);
             this.router.navigate(['login'])
         }
         return id ? true : false;
