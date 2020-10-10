@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Models
 import { UserModel } from '@app-contacts/models/user.model';
@@ -24,7 +25,7 @@ export class ContactsListComponent {
 	};
 	public config = JSON.parse(JSON.stringify(CONTACTS_TABLE_CONFIG));
 
-	constructor() { }
+	constructor(private router: Router, private route: ActivatedRoute) { }
 
 	onPageChange(e: PageEvent) {
 		// NOTE: for future development (pagination)
@@ -34,7 +35,10 @@ export class ContactsListComponent {
     /**
      * onItemClicked
      */
-    public onItemClicked(e: UserModel) {
-        console.log('e', e);
+    public onItemClicked(user: UserModel) {
+		console.log('userid', user.id);
+        if (user && user.id) {
+			this.router.navigate([user.id], { relativeTo: this.route})
+		}
     }
 }
