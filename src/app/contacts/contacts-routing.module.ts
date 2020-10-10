@@ -21,7 +21,7 @@ export const CONTACT_ROUTES = [{
         }
     }, {
         path: ':id',
-        componen: ContactPopupComponent,
+        component: ContactPopupComponent,
         runGuardsAndResolvers: () => false,
         data: {
             action: CONTACT_ROUTE_ACTIONS.EDIT
