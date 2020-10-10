@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthService } from '@app-auth/services/auth.service';
 
 //
 import { USERS } from '@app-auth/services/mock.data';
 
 // Services
-import { AuthService } from '@app-auth/services/auth.service';
-import { MAIN_APP_ROUTES } from 'app/app.routes';
+import { MAIN_APP_ROUTES } from 'app/routes';
 @Component({
   selector: 'login-screen',
   templateUrl: './login-screen.component.html',
@@ -21,7 +20,7 @@ export class LoginScreenComponent {
 
   private mockUsers = USERS;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
       this.loginForm = this.formBuilder.group({
@@ -38,9 +37,7 @@ export class LoginScreenComponent {
           const foundUser = this.mockUsers.find((user) => user.password === password && user.username === username);
           
           if (foundUser) {
-              window.localStorage.setItem('userId', '324098-21321-dsad-32c23-21es4');
-              this.router.navigate([MAIN_APP_ROUTES.HOME]);
-            //   window.location.reload(); // quick-fix loading (simulate oauth-authentication)
+              this.authService.login('324098-21321-dsad-32c23-21es4');
           }
       }
   }

@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { AuthModule } from '@app-auth/auth.module';
 
 @NgModule({
   declarations: [

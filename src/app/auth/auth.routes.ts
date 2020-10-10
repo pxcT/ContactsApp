@@ -2,5 +2,6 @@ import { LoginScreenComponent } from '@app-auth/features/login-screen/login-scre
 
 export const AUTH_ROUTES_CONFIGURATION = [{
     path: '',
-    component: LoginScreenComponent
+    component: LoginScreenComponent,
+    outlet: 'notLoggedIn'
 }];

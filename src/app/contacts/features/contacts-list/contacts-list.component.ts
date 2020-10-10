@@ -27,6 +27,7 @@ export class ContactsListComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit(): void {
+		console.log('got here');
 	}
 
 
