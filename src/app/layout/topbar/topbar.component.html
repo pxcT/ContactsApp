@@ -1,0 +1,16 @@
+<mat-toolbar>
+    <div
+        class="topbar-container"
+        (click)="navigateToParent()">
+        <div class="l-topbar">
+            <img
+                [src]="appLogo"
+                alt="Logo"
+                onerror="this.src='/assets/img/logo.png';">
+            <span>Contacts App</span>
+        </div>
+        <div class="r-topbar">
+            <!-- Content to be added for notifications and UserProfile -->
+        </div>
+    </div>
+</mat-toolbar>

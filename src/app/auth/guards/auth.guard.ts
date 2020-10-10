@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router, CanLoad, Route } from '@angular/router';
-import { AUTH_ROUTES } from 'app/app.routes';
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanLoad {
@@ -8,8 +7,9 @@ export class AuthGuard implements CanLoad {
 
     canLoad(route: Route) {
         const id = window.localStorage.getItem('userId');
+        console.log('id', id);
         if (!id) {
-            this.router.navigate([AUTH_ROUTES.LOGIN])
+            this.router.navigate(['login'])
         }
         return id ? true : false;
     }

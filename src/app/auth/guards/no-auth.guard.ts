@@ -9,7 +9,7 @@ export class NoAuthGuard implements CanLoad {
     canLoad(route: Route) {
         const id = window.localStorage.getItem('userId');
         if (id) {
-            this.router.navigate([MAIN_APP_ROUTES.DEFAULT_ROUTE])
+            this.router.navigate(['home'])
         }
         return !id ? true : false;
     }

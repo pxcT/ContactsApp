@@ -1,0 +1,41 @@
+@import 'variables';
+
+.sidebar-container {
+    width: 100%;
+    height: 100%;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+
+        .sidebar-item {
+            
+            .active {
+                background: $stw-light-blue;
+          
+
+                .sidebar-item-text {
+                    color: $stw-white;
+                }
+            }
+
+            .sidebar-item-text {
+                color: $stw-black;
+                font-size: 1em;
+            }
+
+            .sidebar-item-link {
+                display: flex;
+                align-items: center;
+                height: 25px;
+                width: calc(100% - 20px);
+                padding: 5px 10px;
+                text-decoration: none;
+            }
+
+        }
+    }
+}

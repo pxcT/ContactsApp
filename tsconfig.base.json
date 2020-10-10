@@ -16,7 +16,9 @@
     "paths": {
       "@app-shared/*": ["app/shared/*"],
       "@app-auth/*": ["app/auth/*"],
-      "@app-contacts/*": ["app/contacts/*"]
+      "@app-contacts/*": ["app/contacts/*"],
+      "@app-layout/*": ["app/layout/*"],
+      "@app-home/*": ["app/home/*"],
     }
   }
 }

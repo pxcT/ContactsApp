@@ -1,0 +1,39 @@
+@import 'variables';
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: $stw-blue-dark;
+
+    .centered-panel {
+        padding: 10px;
+        width: 475px;
+        height: 200px;
+        background: $stw-white;
+        box-shadow: 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+            margin-bottom: 15px;
+        }
+
+        &:not(:first-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+
+
+    .auth-container-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+}
