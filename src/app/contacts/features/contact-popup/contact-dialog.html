@@ -1,15 +1,38 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-  My favorite animal is:
-  <ul>
-    <li>
-      <span>&#10003;</span> Panda
-    </li>
-    <li>
-      <span>&#10003;</span> Unicorn
-    </li>
-    <li>
-      <span>&#10003;</span> Lion
-    </li>
-  </ul>
+<div class="form-container">
+  <form [formGroup]="contactForm">
+      <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName">
+          <mat-error *ngIf="contactForm.controls.firstName.touched && contactForm.controls.firstName.invalid">
+              <span *ngIf="contactForm.controls.firstName.errors.required">First Name is required.</span>
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName">
+          <mat-error *ngIf="contactForm.controls.lastName.touched && contactForm.controls.lastName.invalid">
+              <span *ngIf="contactForm.controls.lastName.errors.required">First Name is required.</span>
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNumber">
+          <mat-error *ngIf="contactForm.controls.phoneNumber.touched && contactForm.controls.phoneNumber.invalid">
+              <span *ngIf="contactForm.controls.phoneNumber.errors.required">First Name is required.</span>
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <mat-error *ngIf="contactForm.controls.email.touched && contactForm.controls.email.invalid">
+              <span *ngIf="contactForm.controls.email.errors.required">First Name is required.</span>
+          </mat-error>
+      </mat-form-field>
+  </form>
+  <button
+      (click)="onSubmit()"
+      mat-raised-button
+      color="primary">
+      Submit
+  </button>
 </div>

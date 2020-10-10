@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { ContactResolver } from './resolvers/contact.resolver';
 // Components
 import { ContactPopupComponent } from '@app-contacts/features/contact-popup/contact-popup.component';
 import { ContactsListComponent } from '@app-contacts/features/contacts-list/contacts-list.component'
+import { ContactDialogComponent } from '@app-contacts/features/contact-dialog/contact-dialog.component';
 
 const enum CONTACT_ROUTE_ACTIONS  {
     CREATE = 'create',
@@ -22,7 +24,9 @@ export const CONTACT_ROUTES = [{
     }, {
         path: ':id',
         component: ContactPopupComponent,
-        runGuardsAndResolvers: () => false,
+        resolve: {
+            contact: ContactResolver
+        },
         data: {
             action: CONTACT_ROUTE_ACTIONS.EDIT
         }
@@ -35,5 +39,5 @@ export const CONTACT_ROUTES = [{
     exports: [RouterModule],
 })
 export class ContactsRoutingModule { 
-    static components = [ContactsListComponent, ContactPopupComponent];
+    static components = [ContactsListComponent, ContactPopupComponent, ContactDialogComponent];
 }

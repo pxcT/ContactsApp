@@ -1,8 +1,13 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+
+// Components
+import { ContactDialogComponent } from '@app-contacts/features/contact-dialog/contact-dialog.component';
+
+// Material
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-contact-popup',
@@ -12,26 +17,27 @@ import { filter, takeUntil } from 'rxjs/operators';
 export class ContactPopupComponent implements OnInit, OnDestroy {
 	private destroy$ = new Subject<boolean>();
 
-	constructor(private dialog: MatDialog, private route: ActivatedRoute) { }
+	constructor(private dialog: MatDialog, private route: ActivatedRoute) {
+	}
 
 	ngOnInit(): void {
 		this.initialRender();
+		console.log(this.route.snapshot.data);
 		this.route.params.pipe(
 			takeUntil(this.destroy$)
 		).subscribe((data) => {
-			this.dialog.open(ContactDialog, {
+			this.dialog.open(ContactDialogComponent, {
 				data: {
-					animal: 'panda'
+					contact: data.id ? this.route.snapshot.data['contact'] : null
 				}
 			});
 		});
 	}
 
-
 	private initialRender(): void {
-		this.dialog.open(ContactDialog, {
+		this.dialog.open(ContactDialogComponent, {
 			data: {
-				animal: 'panda'
+				contact: this.route.snapshot.data['contact']
 			}
 		});
 	}
@@ -42,10 +48,3 @@ export class ContactPopupComponent implements OnInit, OnDestroy {
 	}
 }
 
-@Component({
-	selector: 'contact-dialog',
-	templateUrl: 'contact-dialog.html',	
-})
-export class ContactDialog {
-	constructor(@Inject(MAT_DIALOG_DATA) public data) { }
-}

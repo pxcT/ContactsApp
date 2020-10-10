@@ -10,7 +10,9 @@ import { ILoadedItems } from '@app-shared/models/loaded-items.interface';
 
 // Dummy Data & Configs
 import { CONTACTS_TABLE_CONFIG } from '@app-contacts/configs/contacts-table.config';
-import { CONTACTS } from '@app-contacts/services/dummy-data';
+
+// Services
+import { ContactsService } from '@app-contacts/services/contacts.service';
 
 @Component({
 	selector: 'contacts-list',
@@ -18,19 +20,16 @@ import { CONTACTS } from '@app-contacts/services/dummy-data';
 	styleUrls: ['./contacts-list.component.scss']
 })
 export class ContactsListComponent {
-	public data: ILoadedItems<UserModel>= {
-		count: CONTACTS.length, // will be used for pagination
-		results: CONTACTS,
-		totalCount: CONTACTS.length
-	};
+	public data: ILoadedItems<UserModel>;
 	public config = JSON.parse(JSON.stringify(CONTACTS_TABLE_CONFIG));
 
-	constructor(private router: Router, private route: ActivatedRoute) { }
+	constructor(private router: Router, private route: ActivatedRoute, private contactsService: ContactsService) {
+		this.prepareTableData();
+	}
 
 	onPageChange(e: PageEvent) {
 		// NOTE: for future development (pagination)
 	}
-
 	
     /**
      * onItemClicked
@@ -40,5 +39,14 @@ export class ContactsListComponent {
         if (user && user.id) {
 			this.router.navigate([user.id], { relativeTo: this.route})
 		}
-    }
+	}
+	
+	private prepareTableData(): void {
+		const contacts = this.contactsService.getContacts();
+		this.data = {
+			count: contacts.length,
+			results: contacts,
+			totalCount: contacts.length
+		};
+	}
 }
