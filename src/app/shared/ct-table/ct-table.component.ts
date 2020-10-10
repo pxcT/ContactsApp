@@ -58,4 +58,5 @@ export class CtTableComponent {
             this.selection.clear() :
             this.dataSource.data.forEach(row => this.selection.select(row));
     }
+
 }

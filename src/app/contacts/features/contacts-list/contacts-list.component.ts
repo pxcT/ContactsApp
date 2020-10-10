@@ -34,7 +34,7 @@ export class ContactsListComponent {
     /**
      * onItemClicked
      */
-    public onItemClicked(e) {
+    public onItemClicked(e: UserModel) {
         console.log('e', e);
     }
 }
