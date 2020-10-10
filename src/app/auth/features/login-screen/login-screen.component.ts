@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '@app-auth/services/auth.service';
 
-//
+// Services & utils
+import { AuthService } from '@app-auth/services/auth.service';
 import { USERS } from '@app-auth/services/mock.data';
 
-// Services
-import { MAIN_APP_ROUTES } from 'app/routes';
 @Component({
   selector: 'login-screen',
   templateUrl: './login-screen.component.html',
