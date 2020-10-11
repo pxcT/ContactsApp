@@ -34,7 +34,7 @@ import { CtTableComponent } from '@app-shared/ct-table/ct-table.component';
         CtTableComponent,
         MatButtonModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
     ],
     declarations: [CtTableComponent],
     providers: [],

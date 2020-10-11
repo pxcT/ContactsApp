@@ -9,9 +9,10 @@ import { ContactResolver } from '@app-contacts/resolvers/contact.resolver';
 
 // Services
 import { ContactsService } from '@app-contacts/services/contacts.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [ContactsRoutingModule, SharedModule],
+    imports: [ContactsRoutingModule, SharedModule, CommonModule],
     exports: [],
     declarations: ContactsRoutingModule.components,
     providers: [ContactsService, ContactResolver],

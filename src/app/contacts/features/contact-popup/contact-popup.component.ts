@@ -17,12 +17,9 @@ import { MatDialog } from '@angular/material/dialog';
 export class ContactPopupComponent implements OnInit, OnDestroy {
 	private destroy$ = new Subject<boolean>();
 
-	constructor(private dialog: MatDialog, private route: ActivatedRoute) {
-	}
+	constructor(private dialog: MatDialog, private route: ActivatedRoute) { }
 
 	ngOnInit(): void {
-		this.initialRender();
-		console.log(this.route.snapshot.data);
 		this.route.params.pipe(
 			takeUntil(this.destroy$)
 		).subscribe((data) => {
@@ -31,14 +28,6 @@ export class ContactPopupComponent implements OnInit, OnDestroy {
 					contact: data.id ? this.route.snapshot.data['contact'] : null
 				}
 			});
-		});
-	}
-
-	private initialRender(): void {
-		this.dialog.open(ContactDialogComponent, {
-			data: {
-				contact: this.route.snapshot.data['contact']
-			}
 		});
 	}
 
