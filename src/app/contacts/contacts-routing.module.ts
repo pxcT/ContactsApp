@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+// Resolvers & Guards
 import { ContactResolver } from './resolvers/contact.resolver';
+
 // Components
 import { ContactPopupComponent } from '@app-contacts/features/contact-popup/contact-popup.component';
 import { ContactsListComponent } from '@app-contacts/features/contacts-list/contacts-list.component'
 import { ContactDialogComponent } from '@app-contacts/features/contact-dialog/contact-dialog.component';
 
-const enum CONTACT_ROUTE_ACTIONS  {
-    CREATE = 'create',
-    EDIT = 'edit'
-}
+// Actions
+import { CONTACT_ROUTE_ACTIONS } from './contact-route-actions';
+
 
 export const CONTACT_ROUTES = [{
     path: '',

@@ -25,10 +25,13 @@ export class ContactPopupComponent implements OnInit, OnDestroy {
 		).subscribe((data) => {
 			this.dialog.open(ContactDialogComponent, {
 				data: {
-					contact: data.id ? this.route.snapshot.data['contact'] : null
+					contact: data.id ? this.route.snapshot.data['contact'] : null,
+					action:	this.route.snapshot.data.action,
+					dialogRef: this.dialog
 				}
 			});
 		});
+
 	}
 
 	ngOnDestroy() {

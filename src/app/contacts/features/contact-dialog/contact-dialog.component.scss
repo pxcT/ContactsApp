@@ -1,4 +1,18 @@
-form {
-    display: flex;
-    flex-direction: column;
+:host {
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .action-bar {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-bottom: 1px solid #80808096;
+    
+        .delete {
+            margin-left: 15px;
+        }
+    }
 }
